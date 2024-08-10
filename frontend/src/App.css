@@ -1,21 +1,25 @@
-.customShadow{
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+.sombraPersonalizada {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/***user table***/
-.userTable{
-    @apply bg-white
-}
-.userTable th{
-    @apply border text-base font-medium
+/***tabla de usuarios***/
+.tablaUsuarios {
+    background-color: white;
 }
 
-.userTable td{
-    @apply border text-base text-center
+.tablaUsuarios th {
+    border: 1px solid;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-/**scrollbar hidden****/
-.scrollbar-none::-webkit-scrollbar{
+.tablaUsuarios td {
+    border: 1px solid;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/**ocultar scrollbar****/
+.scrollbar-oculta::-webkit-scrollbar {
     display: none;
 }
-

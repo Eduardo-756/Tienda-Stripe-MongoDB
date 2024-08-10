@@ -2,61 +2,55 @@ const bcrypt = require('bcryptjs')
 const userModel = require('../../models/userModel')
 const jwt = require('jsonwebtoken');
 
-async function userSignInController(req,res){
-    try{
-        const { email , password} = req.body
+async function userSignInController(req, res) {
+    try {
+        const { email, password } = req.body
 
-        if(!email){
-            throw new Error("Please provide email")
+        if (!email) {
+            throw new Error("Por favor, ingrese el email")
         }
-        if(!password){
-             throw new Error("Please provide password")
-        }
-
-        const user = await userModel.findOne({email})
-
-       if(!user){
-            throw new Error("User not found")
-       }
-
-       const checkPassword = await bcrypt.compare(password,user.password)
-
-       console.log("checkPassoword",checkPassword)
-
-       if(checkPassword){
-        const tokenData = {
-            _id : user._id,
-            email : user.email,
-        }
-        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
-
-        const tokenOption = {
-            httpOnly : true,
-            secure : true
+        if (!password) {
+            throw new Error("Por favor, ingrese la contraseña")
         }
 
-        res.cookie("token",token,tokenOption).status(200).json({
-            message : "Login successfully",
-            data : token,
-            success : true,
-            error : false
-        })
+        const user = await userModel.findOne({ email })
 
-       }else{
-         throw new Error("Please check Password")
-       }
+        if (!user) {
+            throw new Error("Usuario no encontrado")
+        }
 
+        const checkPassword = await bcrypt.compare(password, user.password)
 
+        console.log("checkPassoword", checkPassword)
 
+        if (checkPassword) {
+            const tokenData = {
+                _id: user._id,
+                email: user.email,
+            }
+            const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
 
+            const tokenOption = {
+                httpOnly: true,
+                secure: true
+            }
 
+            res.cookie("token", token, tokenOption).status(200).json({
+                message: "Ha iniciado sesión correctamente",
+                data: token,
+                success: true,
+                error: false
+            })
 
+        } else {
+            throw new Error("Por favor, compruebe la contraseña")
+        }
 
-    }catch(err){
+    } catch (err) {
         res.json({
-            message : err.message || err  ,
-            error : true,
-            success : false,
+            message: err.message || err,
+            error: true,
+            success: false,
         })
     }
 

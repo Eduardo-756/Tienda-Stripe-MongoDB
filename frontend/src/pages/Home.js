@@ -7,20 +7,20 @@ import VerticalCardProduct from '../components/VerticalCardProduct'
 const Home = () => {
   return (
     <div>
-      <CategoryList/>
-      <BannerProduct/>
+      <CategoryList />
+      <BannerProduct />
 
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"}/>
-      <HorizontalCardProduct category={"watches"} heading={"Popular's Watches"}/>
+      <HorizontalCardProduct category={"auriculares"} heading={"Mejores Auriculares"} />
+      <HorizontalCardProduct category={"relojes"} heading={"Relojes Populares"} />
 
-      <VerticalCardProduct category={"mobiles"} heading={"Mobiles"}/>
-      <VerticalCardProduct category={"Mouse"} heading={"Mouse"}/>
-      <VerticalCardProduct category={"televisions"} heading={"Televisions"}/>
-      <VerticalCardProduct category={"camera"} heading={"Camera & Photography"}/>
-      <VerticalCardProduct category={"earphones"} heading={"Wired Earphones"}/>
-      <VerticalCardProduct category={"speakers"} heading={"Bluetooth Speakers"}/>
-      <VerticalCardProduct category={"refrigerator"} heading={"Refrigerator"}/>
-      <VerticalCardProduct category={"trimmers"} heading={"Trimmers"}/>
+      <VerticalCardProduct category={"moviles"} heading={"Móviles"} />
+      <VerticalCardProduct category={"ratones"} heading={"ratones"} />
+      <VerticalCardProduct category={"televisores"} heading={"Televisores"} />
+      <VerticalCardProduct category={"camaras"} heading={"Cámaras y Fotografía"} />
+      <VerticalCardProduct category={"cascos"} heading={"Cascos con Cable"} />
+      <VerticalCardProduct category={"altavoces"} heading={"Altavoces Bluetooth"} />
+      <VerticalCardProduct category={"refrigeradores"} heading={"Refrigeradores"} />
+      <VerticalCardProduct category={"afeitadoras"} heading={"Afeitadoras"} />
     </div>
   )
 }

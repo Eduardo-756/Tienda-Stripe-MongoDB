@@ -2,7 +2,7 @@ import React from 'react'
 
 const ForgotPassowrd = () => {
   return (
-    <div>ForgotPassowrd</div>
+    <div>¿Has olvidado la contraseña?</div>
   )
 }
 
